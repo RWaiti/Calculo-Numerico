@@ -12,26 +12,26 @@ float raiz(float a, float b, float precisao, int reps)
         fa = pow(a,5)+22*pow(a,3)-8*pow(a,2)-18*a; //valor do f(a) no eixo y
         fb = pow(b,5)+22*pow(b,3)-8*pow(b,2)-18*b; //valor do f(b) no eixo y
 
-        pm = (a+b)/2; //ponto médio do intervalo no eixo x
+        pm = (a+b)/2; //ponto mÃ©dio do intervalo no eixo x
 
-        fxn = pow(pm,5)+22*pow(pm,3)-8*pow(pm,2)-18*pm; //valor do f(x) do ponto médio no eixo y
+        fxn = pow(pm,5)+22*pow(pm,3)-8*pow(pm,2)-18*pm; //valor do f(x) do ponto mÃ©dio no eixo y
 
         fxnabs = fabs(fxn); //valor absoluto do f(x)
 
-        if(fxn<0) //se f(x) for negativo está mais próximo do f(a) no eixo y
+        if(fxn<0) //se f(x) for negativo estÃ¡ mais prÃ³ximo do f(a) no eixo y
         {
-            a = pm; // Daí a no eixo x é substituído pelo ponto médio
+            a = pm; // DaÃ­ a no eixo x Ã© substituÃ­do pelo ponto mÃ©dio
 
-            if(fxnabs < precisao){ //se f(x) for menor que a precisão para a repetição
+            if(fxnabs < precisao){ //se f(x) for menor que a precisÃ£o para a repetiÃ§Ã£o
                 break;
             }
 
         }
-        else //se f(x) for positivo está mais próximo do f(b) no eixo y
+        else //se f(x) for positivo estÃ¡ mais prÃ³ximo do f(b) no eixo y
         {
-            b = pm; // Daí b no eixo x é substituído pelo ponto médio
+            b = pm; // DaÃ­ b no eixo x Ã© substituÃ­do pelo ponto mÃ©dio
 
-            if(fxnabs < precisao){ //se f(x) for menor que a precisão para a repetição
+            if(fxnabs < precisao){ //se f(x) for menor que a precisÃ£o para a repetiÃ§Ã£o
                 break;
             }
         }
@@ -58,8 +58,8 @@ int main()
     raiz(a, b, precisao, reps);
     /*a = 0.1; //intervalo no eixo x
     b = 2;  //intervalo mo eixo x
-    reps = 100; //numero de iterações
-    precisao = 0.0001; //precisão
+    reps = 100; //numero de iteraÃ§Ãµes
+    precisao = 0.0001; //precisÃ£o
     */
 
     return 0;
