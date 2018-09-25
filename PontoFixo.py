@@ -12,7 +12,7 @@ def g(x):
 def ponto_fixo(x, error, num):
     for i in range(num):
         fxn = f(x)
-        if fxn > error:
+        if fxn < error:
             return x
         else:
             x = g(x)
