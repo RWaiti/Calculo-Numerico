@@ -24,32 +24,44 @@ double f13(double x)
     return fi3;
 }*/
 
-double pontofixo(double x, double precisao)
+double pontofixo(double x, double precisao, int inter)
 {
     double fx;
     int i;
 
-    while(fabs(fx) > precisao)
+    for(i = 0; i < inter; i++)
     {
-        fx = pow(x, 3) - 9 * x + 5;
+        if(fabs(fx) < precisao)
+        {
+            break;
+        }
 
-        x = fi(x);
+        else
+        {
+            fx = pow(x, 3) - 9 * x + 5;
 
-        i++;
+            x = fi(x);
+
+        }
     }
+
     printf("%lf\n%d\n", x, i);
 }
 
 int main()
 {
     double x, precisao, I, a, b;
-    a = 0,5;
+    int interacoes;
+
+    a = 0.5;
     b = 1;
     I = (a + b) / 2;
     x = I;
-    precisao = pow(10, -2);
 
-    pontofixo(x, precisao);
+    precisao = pow(10, -2);
+    interacoes = 100;
+
+    pontofixo(x, precisao, interacoes);
 
     return 0;
 }
