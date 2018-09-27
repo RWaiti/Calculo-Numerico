@@ -2,6 +2,20 @@
 #include <stdlib.h>
 #include <math.h>
 
+float funcaoa(float a)
+{
+    f1 = pow(a,5)+22 * pow(a,3)-8 * pow(a,2)-18 * a;
+
+    return f1;
+}
+
+float funcaob(float b)
+{
+    f2 = pow(b,5)+22 * pow(b,3)-8 * pow(b,2)-18 * b;
+
+    return f2;
+}
+
 float raiz(float a, float b, float precisao, int reps)
 {
     int i;
@@ -9,8 +23,8 @@ float raiz(float a, float b, float precisao, int reps)
 
     for(i = 0; i < reps; i++)
     {
-        fa = pow(a,5)+22*pow(a,3)-8*pow(a,2)-18*a; //valor do f(a) no eixo y
-        fb = pow(b,5)+22*pow(b,3)-8*pow(b,2)-18*b; //valor do f(b) no eixo y
+        fa = funcaoa(a) //valor do f(a) no eixo y
+        fb = funcaob(b) //valor do f(b) no eixo y
 
         if(fa * fb < precisao)
         {
