@@ -6,6 +6,7 @@ Created on Wed Sep 19 23:49:28 2018
 """
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 a = 0.1
 b = 2

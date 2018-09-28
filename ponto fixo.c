@@ -31,6 +31,8 @@ double pontofixo(double x, double precisao, int inter)
 
     for(i = 0; i < inter; i++)
     {
+        fx = pow(x, 3) - 9 * x + 5;
+
         if(fabs(fx) < precisao)
         {
             break;
@@ -38,8 +40,6 @@ double pontofixo(double x, double precisao, int inter)
 
         else
         {
-            fx = pow(x, 3) - 9 * x + 5;
-
             x = fi(x);
 
         }
