@@ -33,4 +33,4 @@ aux = ponto_fixo(x, error, num, graf)
 plt.plot(graf)
 plt.show
 
-print(aux)
+print("Raiz: ",aux)
