@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def f(x):
-    return (x**3) - (9 * x) + 5
+    return (x**3) - (9*x) + 5
 
 
 def g(x):
@@ -14,7 +14,7 @@ def ponto_fixo(x, error, num, graf):
     for i in range(num):
         fxn = f(x)
         graf.append(x)
-               
+        
         if abs(fxn) < error:
             return x
         else:
