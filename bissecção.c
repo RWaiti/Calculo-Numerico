@@ -25,7 +25,7 @@ float raiz(float a, float b, float precisao, int reps)
         {
             x0 = (a+b)/2; //ponto médio do intervalo no eixo x
 
-            fxn = pow(x0,5)+22*pow(x0,3)-8*pow(x0,2)-18*x0; //valor do f(x) do ponto médio no eixo y
+            fxn = f(x0); //valor do f(x) do ponto médio no eixo y
 
             fxnabs = fabs(fxn); //valor absoluto do f(x)
 
