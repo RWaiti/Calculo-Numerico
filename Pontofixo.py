@@ -14,6 +14,7 @@ def ponto_fixo(x, error, num, graf):
     for i in range(num):
         fxn = f(x)
         graf.append(x)
+               
         if abs(fxn) < error:
             return x
         else:
@@ -28,6 +29,7 @@ num = 50
 graf = []
 
 aux = ponto_fixo(x, error, num, graf)
+
 plt.plot(graf)
 plt.show
 
