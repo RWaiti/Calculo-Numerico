@@ -2,77 +2,103 @@
 #include <stdlib.h>
 #include <math.h>
 
-float raiz(float a, float b, float precisao, int reps)
+double f(double x)
+{
+    double fx;
+
+    fx = pow(x, 3) - 9 * x + 5;
+
+    return fx;
+}
+
+double falsaposicao(double a, double b, double precisao, int reps)
 {
     int i;
-    float fa, fb, fxn, fxnabs, pm;
+    double fa, fb, fxn, fxnabs, x0;
 
     for(i = 0; i < reps; i++)
     {
-        fa = pow(a,5)+22*pow(a,3)-8*pow(a,2)-18*a; //valor do f(a) no eixo y
-        fb = pow(b,5)+22*pow(b,3)-8*pow(b,2)-18*b; //valor do f(b) no eixo y
+        fa = f(a); //valor do f(a) no eixo y
+        fb = f(b); //valor do f(b) no eixo y
 
-        //fa = pow(a,3) - 9 * a + 3;
-        //fa = pow(b,3) - 9 * b + 3;
-
-        //pm = (a+b)/2; //ponto médio do intervalo no eixo x
-
-        pm = ((a * fb) - (b * fa))/ fb - fa; //e tomado a média aritmética ponderada entre a e b com pesos |f(b)| e |f(a)|
-
-
-        fxn = pow(pm,5)+22*pow(pm,3)-8*pow(pm,2)-18*pm; //valor do f(x) do ponto médio no eixo y
-        //fxn = pow(b,3) - 9 * b + 3;
-
-        //fxnabs = fabs(fxn); //valor absoluto do f(x)
-
-        if(fxn<0) //se f(x) for negativo está mais próximo do f(a) no eixo y
+        if(fa * fb < precisao)
         {
-            a = pm; // Daí a no eixo x é substituído pelo ponto médio
+            x0 = ((a * fb) - (b * fa))/(fb - fa); //ponto médio do intervalo no eixo x
 
-            if(fxnabs < precisao){ //se f(x) for menor que a precisão para a repetição
-                break;
+            fxn = f(x0); //valor do f(x) do ponto médio no eixo y
+
+            fxnabs = fabs(fxn); //valor absoluto do f(x)
+
+            if(fxn < 0) //se f(x) for negativo está mais próximo do f(a) no eixo y
+            {
+                if(fb < 0)
+                {
+                    b = x0; // Daí a no eixo x é substituído pelo ponto médio
+
+                    if(fxnabs < precisao) //se f(x) for menor que a precisão para a repetição
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    a = x0;
+
+                    if(fxnabs < precisao) //se f(x) for menor que a precisão para a repetição
+                    {
+                        break;
+                    }
+                }
+
+            }
+            else //se f(x) for positivo está mais próximo do f(b) no eixo y
+            {
+                if(fb > 0)
+                {
+                    b = x0;
+
+                    if(fxnabs < precisao) //se f(x) for menor que a precisão para a repetição
+                    {
+                        break;
+                    }
+                }
+
+                else
+                {
+                    a = x0; // Daí b no eixo x é substituído pelo ponto médio
+
+                    if(fxnabs < precisao) //se f(x) for menor que a precisão para a repetição
+                    {
+                        break;
+                    }
+                }
             }
 
         }
-        else //se f(x) for positivo está mais próximo do f(b) no eixo y
+        else
         {
-            b = pm; // Daí b no eixo x é substituído pelo ponto médio
-
-            if(fxnabs < precisao){ //se f(x) for menor que a precisão para a repetição
-                break;
-            }
+            break;
         }
+
+        printf("%f\n%f\n", fa, fb);
 
     }
-    printf("Raiz Aproximada = %.3f \n", pm);
+    printf("Raiz Aproximada = %.3f \n", x0);
     printf("Numero de Iteracoes = %d \n", i);
 }
 
 int main()
 {
-    int i, reps;
-    float a, b, fa, fb, fxn, fxnabs, pm, precisao;
 
-    printf("Ponto a: ");
-    scanf("%f", &a);
-    printf("Ponto b: ");
-    scanf("%f", &b);
-    printf("precisao: ");
-    scanf("%f", &precisao);
-    printf("Repeticoes: ");
-    scanf("%d", &reps);
+    double a, b, precisao;
+    int rep;
 
-    raiz(a, b, precisao, reps);
-    /*a = 0.1; //intervalo no eixo x
-    b = 2;  //intervalo mo eixo x
-    reps = 100; //numero de iterações
-    precisao = 0.0001; //precisão
-    */
+    a = 0.5;
+    b = 1;
+    precisao = pow(10, -3);
+    rep = 100;
+
+    falsaposicao(a, b, precisao, rep);
 
     return 0;
 }
-
-
-
-
-

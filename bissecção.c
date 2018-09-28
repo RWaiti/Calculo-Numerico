@@ -2,85 +2,101 @@
 #include <stdlib.h>
 #include <math.h>
 
-float funcaoa(float a)
+float f(float x)
 {
-    f1 = pow(a,5)+22 * pow(a,3)-8 * pow(a,2)-18 * a;
+    double fx;
 
-    return f1;
-}
+    fx = pow(x, 3) - 9 * x + 5;
 
-float funcaob(float b)
-{
-    f2 = pow(b,5)+22 * pow(b,3)-8 * pow(b,2)-18 * b;
-
-    return f2;
+    return fx;
 }
 
 float raiz(float a, float b, float precisao, int reps)
 {
     int i;
-    float fa, fb, fxn, fxnabs, pm;
+    float fa, fb, fxn, fxnabs, x0;
 
     for(i = 0; i < reps; i++)
     {
-        fa = funcaoa(a) //valor do f(a) no eixo y
-        fb = funcaob(b) //valor do f(b) no eixo y
+        fa = f(a); //valor do f(a) no eixo y
+        fb = f(b); //valor do f(b) no eixo y
 
         if(fa * fb < precisao)
         {
-            pm = (a+b)/2; //ponto médio do intervalo no eixo x
+            x0 = (a+b)/2; //ponto médio do intervalo no eixo x
 
-            fxn = pow(pm,5)+22*pow(pm,3)-8*pow(pm,2)-18*pm; //valor do f(x) do ponto médio no eixo y
+            fxn = pow(x0,5)+22*pow(x0,3)-8*pow(x0,2)-18*x0; //valor do f(x) do ponto médio no eixo y
 
             fxnabs = fabs(fxn); //valor absoluto do f(x)
 
-            if(fxn<0) //se f(x) for negativo está mais próximo do f(a) no eixo y
+            if(fxn < 0) //se f(x) for negativo est� mais pr�ximo do f(a) no eixo y
             {
-                a = pm; // Daí a no eixo x é substituído pelo ponto médio
-
-                if(fxnabs < precisao) //se f(x) for menor que a precisão para a repetição
+                if(fb < 0)
                 {
-                    break;
+                    b = x0; // Da� a no eixo x � substitu�do pelo ponto m�dio
+
+                    if(fxnabs < precisao) //se f(x) for menor que a precis�o para a repeti��o
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    a = x0;
+
+                    if(fxnabs < precisao) //se f(x) for menor que a precis�o para a repeti��o
+                    {
+                        break;
+                    }
                 }
 
             }
-            else //se f(x) for positivo está mais próximo do f(b) no eixo y
+            else //se f(x) for positivo est� mais pr�ximo do f(b) no eixo y
             {
-                b = pm; // Daí b no eixo x é substituído pelo ponto médio
-
-                if(fxnabs < precisao) //se f(x) for menor que a precisão para a repetição
+                if(fb > 0)
                 {
-                    break;
+                    b = x0;
+
+                    if(fxnabs < precisao) //se f(x) for menor que a precis�o para a repeti��o
+                    {
+                        break;
+                    }
+                }
+
+                else
+                {
+                    a = x0; // Da� b no eixo x � substitu�do pelo ponto m�dio
+
+                    if(fxnabs < precisao) //se f(x) for menor que a precis�o para a repeti��o
+                    {
+                        break;
+                    }
                 }
             }
 
         }
+        else
+        {
+            break;
+        }
+
 
     }
-    printf("Raiz Aproximada = %.3f \n", pm);
+    printf("Raiz Aproximada = %.3f \n", x0);
     printf("Numero de Iteracoes = %d \n", i+1);
 }
 
 int main()
 {
     int i, reps;
-    float a, b, fa, fb, fxn, fxnabs, pm, precisao;
+    float a, b, precisao;
 
-    printf("Ponto a: ");
-    scanf("%f", &a);
-    printf("Ponto b: ");
-    scanf("%f", &b);
-    printf("precisao: ");
-    scanf("%f", &precisao);
-    printf("Repeticoes: ");
-    scanf("%d", &reps);
-
-    raiz(a, b, precisao, reps);
-    /*a = 0.1; //intervalo no eixo x
-    b = 2;  //intervalo mo eixo x
+    a = 0.5; //intervalo no eixo x
+    b = 1;  //intervalo mo eixo x
     reps = 100; //numero de iterações
-    precisao = 0.0001; //precisão
-    */
+    precisao = pow(10, -2); //precisão
+    raiz(a, b, precisao, reps);
+
 
     return 0;
 }
