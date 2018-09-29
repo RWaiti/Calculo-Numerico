@@ -3,18 +3,18 @@ import matplotlib.pyplot as plt
 
 
 def f(x):
-    return cos(x) + 1
+    return x-(x**2-1)
 
 
 def g(x):
-    return  x - 3 * x * cos(x)
+    return  math.exp(x) -x -1
 
 def ponto_fixo(x, error, num, graf):
-    for i in range(num):
+    for i in range(1,num):
         fxn = f(x)
         graf.append(x)
         
-        if abs(fxn) < error:
+        if abs(x - (x - 1)) < error:
             return x
         else:
             x = g(x)

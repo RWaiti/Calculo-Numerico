@@ -3,10 +3,9 @@ import matplotlib.pyplot as plt
 import math
 
 def f(x):
-    return cos(x) + 1
-
+    return 10 + (x - 2)**2 - 10 * math.cos(2 * 3.1415926 * x)
 def df(x): 
-    return (-1) * sin(x)
+    return 2 * 3.1415926 * x + 20 * (3.1415926)**2 * math.sin(2 * 3.1415926 * x) - 4 * 3.1415926
 
 def newton(x, erro, num, graf):
     cont = 0
@@ -25,8 +24,8 @@ def newton(x, erro, num, graf):
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-x = 1
-num = 100
+x = 1.3
+num = 100000
 erro = 10**-6
 graf = []
  
