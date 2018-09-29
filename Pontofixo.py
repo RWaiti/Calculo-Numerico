@@ -3,12 +3,11 @@ import matplotlib.pyplot as plt
 
 
 def f(x):
-    return (x**3) - (9*x) + 5
+    return cos(x) + 1
 
 
 def g(x):
-    return ((x**3) + 5) / 9
-
+    return  x - 3 * x * cos(x)
 
 def ponto_fixo(x, error, num, graf):
     for i in range(num):
@@ -23,9 +22,9 @@ def ponto_fixo(x, error, num, graf):
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-x = 0.75
-error = 1e-2
-num = 50
+x = 1
+error = 10**-6
+num = 1000000
 graf = []
 
 aux = ponto_fixo(x, error, num, graf)

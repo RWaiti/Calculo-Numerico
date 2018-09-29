@@ -1,9 +1,10 @@
 from __future__ import division
 import matplotlib.pyplot as plt
+import math
 
 
 def f(x):
-    return x**3 - 9*x + 5
+    return cos(x) + 1
 
 
 def bissecao(a, b, erro, num, graf):
@@ -39,10 +40,10 @@ def bissecao(a, b, erro, num, graf):
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-a = 0.5
-b = 1
+a = 1
+b = 3
 num = 100
-erro = 0.01
+erro = 10**-6
 graf = []
  
 aux = bissecao(a, b, erro, num, graf)

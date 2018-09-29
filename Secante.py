@@ -2,7 +2,7 @@ from __future__ import division
 import matplotlib.pyplot as plt
 
 def f(x):
-    return (x**3) - (9*x) + 5
+    return cos(x) + 1
 
 def secante(a, b, erro, num, graf):    
     for i in range(num):
@@ -22,10 +22,10 @@ def secante(a, b, erro, num, graf):
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-a = 0.5
-b = 1
+a = 2
+b = 4
 num = 100
-erro = 0.01
+erro = 10**-6
 graf = []
  
 aux = secante(a, b, erro, num, graf)

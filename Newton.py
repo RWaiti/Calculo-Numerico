@@ -1,11 +1,12 @@
 from __future__ import division
 import matplotlib.pyplot as plt
+import math
 
 def f(x):
-    return (x**3) - (9*x) + 5
+    return cos(x) + 1
 
-def df(x):
-    return (3*(x**2)) - 9
+def df(x): 
+    return (-1) * sin(x)
 
 def newton(x, erro, num, graf):
     cont = 0
@@ -24,9 +25,9 @@ def newton(x, erro, num, graf):
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-x = 0.75
+x = 1
 num = 100
-erro = 0.01
+erro = 10**-6
 graf = []
  
 aux = newton(x, erro, num, graf)
