@@ -1,13 +1,14 @@
 from __future__ import division
 import matplotlib.pyplot as plt
+import math
 
 
 def f(x):
-    return (x**3) - 3*(x**2)*(2**(-x)) + (3*x*4**(-x)) - (8**(-x))
+    return (x - 1.44)**5
 
 
 def g(x):
-    return ((-x**3) + (3*(x**2))*(2**(-x)) + (8**(-x))) / (3 * (4**(-x))) 
+    return math.sqrt(1.44**5 / x**3)
 
 
 def ponto_fixo(x, erro, num, graf):
@@ -23,8 +24,8 @@ def ponto_fixo(x, erro, num, graf):
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-x = 0.5
-erro = 0.000001
+x = 1.3
+erro = 10**-6
 num = 5000
 graf = []
 

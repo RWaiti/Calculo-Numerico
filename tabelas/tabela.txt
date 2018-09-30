@@ -26,16 +26,16 @@ secante			(1, 2.5)			2.000053										10^-6				78					2
 
 
 
-função c)		dados iniciais			x aprox			fi(x)							d/dx							erro			numero de interações			raiz da função
-Bissecção		(0.5, 1)			0.640625																10^-6				5					0.64
+função c)		dados iniciais			x aprox				fi(x)							d/dx							erro			numero de interações			raiz da função
+Bissecção		(0.5, 1)			0.640625																	10^-6				5					0.64
 
-falsa posição		não converge																				10^-6									0.64
+falsa posição		não converge																					10^-6				4323					0.64
 
-ponto fixo		arrumar
+ponto fixo		0.5				0.634268		((-x^3)+(3*(x^2))*(2^(-x))+(8^(-x)))/(3*(4^(-x)))
 
-newton			0.5				0.648114					3*x^2-3*(2^1-x *x*ln(2)*2^-x*x^2)+3*(4^-x-ln(2)*2^-2*x+1*x)+3*ln(2)*8^-x 		10^-6				1784					0.64						
+newton			0.5				0.648114						3*x^2-3*(2^1-x *x*ln(2)*2^-x*x^2)+3*(4^-x-ln(2)*2^-2*x+1*x)+3*ln(2)*8^-x 		10^-6				1784					0.64						
 
-secante			(0.5, 1)			0.635702																10^-6				12					0.64		
+secante			(0.5, 1)			0.635702																	10^-6				12					0.64		
 
 
 
