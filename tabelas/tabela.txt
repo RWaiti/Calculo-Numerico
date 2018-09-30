@@ -1,0 +1,76 @@
+função a)		dados iniciais			x aprox			fi(x)			d/dx			erro			numero de interações			raiz da função
+Bissecção		n converge
+
+falsa posição		não converge
+
+ponto fixo		arrumar
+
+newton			1				3.140390					-sen(x)			10^-6								3.14						
+
+secante			(2, 4)				3.142617								10^-6				13				3.14
+
+
+
+
+função b)		dados iniciais			x aprox			fi(x)			d/dx					erro			numero de interações			raiz da função
+Bissecção		(1, 3)				2											10^-6				1					2
+
+falsa posição		não converge
+
+ponto fixo		arrumar
+
+newton			1.6				2.000039					2*x+20*pi*sen(2*pi*x)-4			10^-6				13					2						
+
+secante			(1, 2.5)			2.000053										10^-6				78					2			
+
+
+
+
+função c)		dados iniciais			x aprox			fi(x)							d/dx							erro			numero de interações			raiz da função
+Bissecção		(0.5, 1)			0.640625																10^-6				5					0.64
+
+falsa posição		não converge																				10^-6									0.64
+
+ponto fixo		arrumar
+
+newton			0.5				0.648114					3*x^2-3*(2^1-x *x*ln(2)*2^-x*x^2)+3*(4^-x-ln(2)*2^-2*x+1*x)+3*ln(2)*8^-x 		10^-6				1784					0.64						
+
+secante			(0.5, 1)			0.635702																10^-6				12					0.64		
+
+
+
+
+
+função d)		dados iniciais			x aprox			fi(x)							d/dx							erro			numero de interações			raiz da função
+Bissecção		(-1, 1)				0																	10^-6				1					0
+
+falsa posição		(-1, 1)				0																	10^-6				1					0
+
+ponto fixo		arrumar
+
+newton			1				0.010181								cos(x)*sen(x^2 / pi)+(2*x*cos(x^2 / pi)*sen(x))/pi		10^-6				12					0						
+
+secante			(-1, 1)				0																	10^-6				1					0			
+
+
+
+função e)		dados iniciais			x aprox			fi(x)							d/dx							erro			numero de interações			raiz da função
+Bissecção		(1, 1.5)			1.4375																	10^-6				1					1.44
+
+falsa posição		overflow																				10^-6									1.44
+
+ponto fixo		arrumar
+
+newton			1				1.380944									5*(x-1.44)^4						10^-6				10					1.44						
+
+secante			(1, 2)				1.383195																10^-6				10					1.44			
+
+
+
+
+
+
+
+
+
+

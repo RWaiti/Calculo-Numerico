@@ -4,45 +4,42 @@ import math
 
 
 def f(x):
-    return cos(x) + 1
-
+    return (x - 1.44)**5
 
 def bissecao(a, b, erro, num, graf):
     for i in range(num):
         fa = f(a)
         fb = f(b)
-        
-        if (fa * fb) < erro:
-            xn = ((a * fb) - (b * fa)) / (fb - fa)
-            fxn = f(xn)
-            fxnabs = abs(fxn)
-            graf.append(xn)
+        xn = ((a * fb) - (b * fa)) / (b - a)
+        fxn = f(xn)
+        fxnabs = abs(fxn)
+        graf.append(xn)
             
-            if fxn < 0:
-                if fb < 0:
-                    b = xn
-                    if fxnabs < erro:
-                        return xn
-                else:
-                    a = xn
-                    if fxnabs < erro:
-                        return xn
+        if fxn < 0:
+            if fb < 0:
+                b = xn
+                if fxnabs < erro:
+                    return xn
             else:
-                if fb > 0:
-                    b = xn
-                    if fxnabs < erro:
-                        return xn
-                else:
-                    a = xn
-                    if fxnabs < erro:
-                        return xn
+                a = xn
+                if fxnabs < erro:
+                    return xn
+        else:
+            if fb > 0:
+                b = xn
+                if fxnabs < erro:
+                    return xn
+            else:
+                a = xn
+                if fxnabs < erro:
+                    return xn
     
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-a = 1
-b = 3
-num = 100
+a = 0.1
+b = 1.5
+num = 10000
 erro = 10**-6
 graf = []
  

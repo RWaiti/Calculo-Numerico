@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import math
 
 def f(x):
-    return 10 + (x - 2)**2 - 10 * math.cos(2 * 3.1415926 * x)
+    return (x - 1.44)**5
+
 def secante(a, b, erro, num, graf):    
     for i in range(num):
         fa = f(a)
@@ -18,18 +19,21 @@ def secante(a, b, erro, num, graf):
         else:
             a = b
             b = xn
+            
 
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
-
+#fig = plt.figure()
+# = fig.add_subplot(111);
 a = 1
-b = 2.2
+b = 2
 num = 1000000
 erro = 10**-6
 graf = []
- 
+
 aux = secante(a, b, erro, num, graf)
                
 plt.plot(graf)
+#ax.set_title("comportamento do método da secante")
 plt.show
 print("Raiz: ", aux)

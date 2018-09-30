@@ -2,19 +2,19 @@
 #include <stdlib.h>
 #include <math.h>
 
-float f(float x)
+double f(double x)
 {
     double fx;
 
-    fx = pow(x, 3) - 9 * x + 5;
+    fx = 10 + pow((x - 2), 2) - 10 * cos(2 * 3.1415926 * x);
 
     return fx;
 }
 
-float raiz(float a, float b, float precisao, int reps)
+double raiz(double a, double b, double precisao, int reps)
 {
     int i;
-    float fa, fb, fxn, fxnabs, x0;
+    double fa, fb, fxn, fxnabs, x0;
 
     for(i = 0; i < reps; i++)
     {
@@ -89,12 +89,12 @@ float raiz(float a, float b, float precisao, int reps)
 int main()
 {
     int i, reps;
-    float a, b, precisao;
+    double a, b, precisao;
 
     a = 0.5; //intervalo no eixo x
     b = 1;  //intervalo mo eixo x
-    reps = 100; //numero de iterações
-    precisao = pow(10, -2); //precisão
+    reps = 10000; //numero de iterações
+    precisao = pow(10, -6); //precisão
     raiz(a, b, precisao, reps);
 
 
