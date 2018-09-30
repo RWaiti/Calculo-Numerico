@@ -4,12 +4,17 @@ import math
 
 
 def f(x):
-    return (x - 1.44)**5
+    return (x - 1) * math.e**(x-2)**2 - 1
 
 
 def g(x):
-    return math.sqrt(1.44**5 / x**3)
+    return (1 / math.e**(x-2)**2) + 1
 
+def h(x):
+    return 1 +(math.e**(x-2)**2 / math.e**(x-2)**2)
+
+def fi(x):
+    return 1 + (math.e**(x**2 - 4*x * 4) / math.e**(x**2 - 4*x * 4))
 
 def ponto_fixo(x, erro, num, graf):
     for i in range(num):
@@ -19,12 +24,13 @@ def ponto_fixo(x, erro, num, graf):
         if abs(fxn) < erro:
             return x
         else:
-            x = g(x)
+            x = fi(x)
 
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
-
-x = 1.3
+fig = plt.figure()
+ax = fig.add_subplot(111);
+x = 1
 erro = 10**-6
 num = 5000
 graf = []
@@ -32,6 +38,7 @@ graf = []
 aux = ponto_fixo(x, erro, num, graf)
 
 plt.plot(graf)
+ax.set_title("comportamento do método da ponto fixo")
 plt.show
 
 print("Raiz: ",aux)

@@ -1,0 +1,6 @@
+intervalo = (1, 2.5)
+raiz = 2
+
+x paroximado = 1.9999990463256836
+
+numero de interações = 19

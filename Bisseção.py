@@ -4,7 +4,7 @@ import math
 
 
 def f(x):
-    return (x - 1.44)**5
+    return (x - 1) * math.e**(x-2)**2 - 1
 
 
 def bissecao(a, b, erro, num, graf):
@@ -38,9 +38,10 @@ def bissecao(a, b, erro, num, graf):
     
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
-
+fig = plt.figure()
+ax = fig.add_subplot(111);
 a = 1
-b = 1.5
+b = 2.5
 num = 10000
 erro = 10**-6
 graf = []
@@ -48,5 +49,6 @@ graf = []
 aux = bissecao(a, b, erro, num, graf)
                
 plt.plot(graf)
+ax.set_title("comportamento do método da bissecção")
 plt.show
 print ("Raiz: ", aux)
