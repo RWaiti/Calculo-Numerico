@@ -11,7 +11,7 @@ def g(x):
     return (1 / math.e**(x-2)**2) + 1
 
 def h(x):
-    return 1 +(math.e**(x-2)**2 / math.e**(x-2)**2)
+    return math.sqrt(8.003 / x)
 
 def fi(x):
     return 1 + (math.e**(x**2 - 4*x * 4) / math.e**(x**2 - 4*x * 4))
