@@ -1,21 +1,23 @@
 from __future__ import division
 import matplotlib.pyplot as plt
-import math
+from math import cos, pi, pow, sin, sqrt
+from numpy import exp
 
 
 def f(x):
-    return (x - 1.44)**5
+    return sin(x) + x**2 - 4.90929828
 
 
 def g(x):
-    return  x - 3 * math.cos(x + 1)
+    return sqrt(4.90929828 - sin(x))
 
-def ponto_fixo(x, error, num, graf):
-    for i in range(1,num):
+
+def ponto_fixo(x, erro, num, graf):
+    for i in range(num):
         fxn = f(x)
         graf.append(x)
         
-        if abs(x - (x-1)) < error:
+        if abs(fxn) < erro:
             return x
         else:
             x = g(x)
@@ -23,14 +25,14 @@ def ponto_fixo(x, error, num, graf):
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-x = 1
-error = 10**-6
-num = 100000
+x = -1
+erro = 0.000001
+num = 5000
 graf = []
 
-aux = ponto_fixo(x, error, num, graf)
+aux = ponto_fixo(x, erro, num, graf)
 
 plt.plot(graf)
 plt.show
 
-print("Raiz: ",aux)
+print("Raiz: ",aux," fi",f(aux))

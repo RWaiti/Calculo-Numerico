@@ -1,20 +1,20 @@
 from __future__ import division
 import matplotlib.pyplot as plt
-import math
 
 
 def f(x):
-    return (x - 1.44)**5
+    return sin(x)*sin((x**2)/pi)    
 
-def bissecao(a, b, erro, num, graf):
+def falsaposicao(a, b, erro, num, graf):
     for i in range(num):
         fa = f(a)
         fb = f(b)
-        xn = ((a * fb) - (b * fa)) / (b - a)
+        
+        xn = ((a * fb) - (b * fa)) / (fb - fa)
         fxn = f(xn)
         fxnabs = abs(fxn)
         graf.append(xn)
-            
+        
         if fxn < 0:
             if fb < 0:
                 b = xn
@@ -37,14 +37,14 @@ def bissecao(a, b, erro, num, graf):
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
 
-a = 0.1
-b = 1.5
+a = 3
+b = 4
 num = 10000
-erro = 10**-6
+erro = 0.000001
 graf = []
  
-aux = bissecao(a, b, erro, num, graf)
+aux = falsaposicao(a, b, erro, num, graf)
                
 plt.plot(graf)
 plt.show
-print ("Raiz: ", aux)
+print ("Raiz: ", aux," fi",f(aux))

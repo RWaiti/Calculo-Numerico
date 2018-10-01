@@ -1,10 +1,11 @@
 from __future__ import division
 import matplotlib.pyplot as plt
-import math
+from math import cos
 
 def f(x):
-    return (x - 1.44)**5
-
+    return sin(x)*sin((x**2)/pi)
+    
+    
 def secante(a, b, erro, num, graf):    
     for i in range(num):
         fa = f(a)
@@ -19,21 +20,18 @@ def secante(a, b, erro, num, graf):
         else:
             a = b
             b = xn
-            
 
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
-#fig = plt.figure()
-# = fig.add_subplot(111);
-a = 1
-b = 2
-num = 1000000
-erro = 10**-6
-graf = []
 
+a = 3
+b = 3.2
+num = 100
+erro = 0.000001
+graf = []
+ 
 aux = secante(a, b, erro, num, graf)
                
 plt.plot(graf)
-#ax.set_title("comportamento do método da secante")
 plt.show
-print("Raiz: ", aux)
+print("Raiz: ", aux, " fi: ", f(aux))

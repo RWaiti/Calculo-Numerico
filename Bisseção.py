@@ -1,10 +1,11 @@
 from __future__ import division
 import matplotlib.pyplot as plt
-import math
+from math import cos,sin,pi
+from numpy import exp
 
 
 def f(x):
-    return (x - 1) * math.e**(x-2)**2 - 1
+    return sin(x)*sin((x**2)/pi)
 
 
 def bissecao(a, b, erro, num, graf):
@@ -12,43 +13,42 @@ def bissecao(a, b, erro, num, graf):
         fa = f(a)
         fb = f(b)
         
-        xn = (a + b)/2
-        fxn = f(xn)
-        fxnabs = abs(fxn)
-        graf.append(xn)
+        if (fa * fb) < erro:
+            xn = (a + b)/2
+            fxn = f(xn)
+            fxnabs = abs(fxn)
+            graf.append(xn)
             
-        if fxn < 0:
-            if fb < 0:
-                b = xn
-                if fxnabs < erro:
-                    return xn
+            if fxn < 0:
+                if fb < 0:
+                    b = xn
+                    if fxnabs < erro:
+                        return xn
+                else:
+                    a = xn
+                    if fxnabs < erro:
+                        return xn
             else:
-                a = xn
-                if fxnabs < erro:
-                    return xn
-        else:
-            if fb > 0:
-                b = xn
-                if fxnabs < erro:
-                    return xn
-            else:
-                a = xn
-                if fxnabs < erro:
-                    return xn
+                if fb > 0:
+                    b = xn
+                    if fxnabs < erro:
+                        return xn
+                else:
+                    a = xn
+                    if fxnabs < erro:
+                        return xn
     
     print("NÚMERO MÁXIMO DE ITERAÇÕES!")
 
-fig = plt.figure()
-ax = fig.add_subplot(111);
-a = 1
-b = 2.5
-num = 10000
-erro = 10**-6
+
+a = 3
+b = 4
+num = 100
+erro = 0.000001
 graf = []
  
 aux = bissecao(a, b, erro, num, graf)
                
 plt.plot(graf)
-ax.set_title("comportamento do método da bissecção")
 plt.show
-print ("Raiz: ", aux)
+print ("Raiz: ", aux, " fi: ",f(aux))
