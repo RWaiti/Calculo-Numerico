@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1539461020 source:c:\users\filip\documents\github\calculo-numerico\modulo2\eliminação de gauss\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
