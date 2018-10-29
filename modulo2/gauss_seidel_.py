@@ -25,18 +25,18 @@ def beta(A):
 
 def maior(A):
     
-    numaior = A[0]
+    numaior = A[0,0]
     for i in range(3):
-        if(abs(A[i]) > abs(numaior)):
-            numaior = A[i]
+        if(abs(A[i:]) > abs(numaior)):
+            numaior = A[i:]
     
     return numaior
 
 def x0(A):
     x = np.zeros(3)
-    x[0] = A[2,0] / A[0,0]
-    x[1] = A[2,1] / A[1,1]
-    x[2] = A[2,2] / A[2,2]
+    x[0] = A[0,3] / A[0,0]
+    x[1] = A[1,3] / A[1,1]
+    x[2] = A[2,3] / A[2,2]
     return x
 
 
