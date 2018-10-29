@@ -54,12 +54,20 @@ sist = np.matrix([[10,2,1,7],
                  [1,5,1,-8],
                  [2,3,10,6]], dtype = 'double')
 
-precisao = 5e-2
-verif = beta(sist)
+E = np.matrix([[1,0,-1,0.2],
+              [-0.5,1,-0.25,-1.425],
+              [1,-1.5,1,2]], dtype = 'double')
+
+F = np.matrix([[1,0,-2,0.2],
+              [-0.5,1,-0.25,-1.425],
+              [1,-1.5,1,2]], dtype = 'double')
+    
+precisao = 10e-2
+verif = beta(F)
 k = np.matrix(3)
 x = np.zeros(3)
 interac = 300
-k = x0(sist)
+k = x0(F)
 cont = 0
 
 if(verif == 1):
@@ -75,8 +83,8 @@ if(verif == 1):
             break
 
 print(dr)
-print("\n",cont)
-print(k)
+print("numero de interações: ",cont)
+print("Valores de x: ",k)
 
 
 

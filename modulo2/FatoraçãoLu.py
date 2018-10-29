@@ -55,8 +55,8 @@ A = np.array([[3,2,4],
 x = np.array([1,2,3])
 
 #print(E)
-U = fatU(A)
-L = fatL(A)
+U = fatU(E)
+L = fatL(E)
 print("Matriz L: \n",L)
 print("Matriz U: \n", U)
 a = Ly(L, x)
