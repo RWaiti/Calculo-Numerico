@@ -25,10 +25,12 @@ def beta(A):
 
 def maior(A):
     
-    numaior = A[0,0]
+    k = np.matrix(3)
+    k = A
+    numaior = abs(k[0])
     for i in range(3):
-        if(abs(A[i:]) > abs(numaior)):
-            numaior = A[i:]
+        if(abs(k[i]) > abs(numaior)):
+            numaior = k[i]
     
     return numaior
 
@@ -40,23 +42,25 @@ def x0(A):
     return x
 
 
-def seidel(A, k):
+def seidel(A, b):
     x = np.zeros(3)
-    x[0] = (1/A[0,0]) * (A[0,3] - A[0,1] * k[1] - A[0,2] * k[2])
-    x[1] = (1/A[1,1]) * (A[1,3] - A[1,0] * x[0] - A[1,2] * k[2])
+    x[0] = (1/A[0,0]) * (A[0,3] - A[0,1] * b[1] - A[0,2] * b[2])
+    x[1] = (1/A[1,1]) * (A[1,3] - A[1,0] * x[0] - A[1,2] * b[2])
     x[2] = (1/A[2,2]) * (A[2,3] - A[2,0] * x[0] - A[2,1] * x[1])
+    return x
 
 
-sist = np.array([[10,2,1,7],
+sist = np.matrix([[10,2,1,7],
                  [1,5,1,-8],
                  [2,3,10,6]], dtype = 'double')
 
 precisao = 5e-2
 verif = beta(sist)
-k = np.zeros(3)
+k = np.matrix(3)
 x = np.zeros(3)
 interac = 300
 k = x0(sist)
+cont = 0
 
 if(verif == 1):
     for i in range(interac):
@@ -65,11 +69,13 @@ if(verif == 1):
         xmaior = maior(x)
         k = x
         dr = abs(xmaior - kmaior) / abs(xmaior)
+        cont = cont + 1
         if(dr < precisao):
             i == interac
             break
 
 print(dr)
+print("\n",cont)
 
 
 
