@@ -76,6 +76,7 @@ if(verif == 1):
 
 print(dr)
 print("\n",cont)
+print(k)
 
 
 
