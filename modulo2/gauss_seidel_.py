@@ -83,8 +83,12 @@ if(verif == 1):
             break
 
 print(dr)
+
 print("numero de interações: ",cont)
 print("Valores de x: ",k)
+print(cont)
+print(k)
+
 
 
 
