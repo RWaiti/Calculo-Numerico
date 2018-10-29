@@ -75,7 +75,7 @@ if(verif == 1):
             break
 
 print(dr)
-print("\n",cont)
+print(cont)
 print(k)
 
 
