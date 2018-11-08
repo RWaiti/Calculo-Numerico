@@ -8,7 +8,9 @@ Created on Wed Oct 31 18:38:50 2018
 import numpy as np
 
 def d(x,y,n):
-    f = np.zeros((n,n), dtype = "double");
+    f = [0.0] * n
+    for i in range(n):
+        f[i] = [0.0]*n
     f[:,0] = y;
     d = np.zeros(n)
     for i in range(1,n):
@@ -19,15 +21,14 @@ def d(x,y,n):
     print(f)
     p = np.array([f[0,0]], dtype="double")  
     paux = np.array([-x[0],1], dtype="double")  
-    p.resize(2)  
-    p = p + f[1,1]*paux  
-    paux = np.polymul(paux,[-x[1],1])  
-    p.resize(3)  
-    p = p + f[2,2]*paux  
-    paux = np.polymul(paux,[-x[2],1])  
-    p.resize(4)  
-    p = p + f[3,3]*paux
+    p.resize(2)
+    for i in range(n):
+        p = p + (f[i,i]*paux)  
+        paux = np.polymul(paux,[-x[i],i])  
+        p.resize(i)
+    
     print(p)
+    
         
     #return p
 
@@ -35,8 +36,10 @@ def d(x,y,n):
 
 x = [-1,0,2]
 y = [4,1,-1]
+vet1 = map(float,x)
+vet2 = map(float,y) 
 n = 3
-d(x,y,n)
+d(vet1,vet2,n)
 
         
         
