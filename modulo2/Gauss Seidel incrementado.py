@@ -3,17 +3,29 @@ import time
 from matplotlib import pyplot
 
 inicio= time.time()
-m = 3
-n = 3
-matriz = np.matrix([[1,0,-1,0.2],
-                    [-0.5,1,-0.25,-1.425],
-                    [1,-0.5,1,2]], dtype = "float")
+
+def gerMatriz(matriz, n):
+    for i in range(n):
+        for j in range(n):
+                matriz[i][j] = 1 / (i + j - 1 + 2)
+
+m = n = 3 #Valor do Hn
+matriz = np.zeros(shape=(n,n))
+matriz = np.matrix([[1,0,-1,],
+                    [-0.5,1,-0.25],
+                    [1,-0.5,1]], dtype = 'double')
+
+#gerMatriz(matriz, n)
+
+print(matriz)
+
 x=np.ones((m))
 
-vetor = np.zeros((n))    
+vetor = np.zeros((n))
+vetor = np.array([0.2,-1.425,2])    
 comp=np.zeros((m))
 erro=[]
-graf=[]
+graf_erro=[]
 fig = pyplot.figure(1)
 
 
@@ -24,7 +36,7 @@ for r in range(0,m):
 
 
 tol=0.001
-itera=10000000
+itera=300
 k=0
 
 while k< itera :
@@ -36,7 +48,6 @@ while k< itera :
             if (c != r):
                 soma=soma+matriz[r,c]*x[c]               
         x[r]=(vetor[r]-soma)/matriz[r,r]
-        graf[0:r]=x[0:r]
         
         print("x["+str(r)+"]: "+str(x[r ]))
     
@@ -49,18 +60,17 @@ while k< itera :
         for c in range(0,n):
              soma=soma+matriz[r,c]*x[c]
         comp[r]=soma
-        dif=abs(comp[r]-vetor[r])
+        dif=abs(comp[r]-vetor[r]) 
         erro.append(dif)
         print("erro em x[",r,"]=",erro[r])
-        graf.erro[0:r]= list.append(erro[r])
-        graf.erro[0:r]=erro[0:r]
-        pyplot.plot(graf.erro[0:r],k)
+        #graf_erro[0:r]= list.append(erro([r]))
+        graf_erro.append(erro[r])
+        pyplot.plot(graf_erro)
     print("iteraçoes:",k)
     if all(i<=tol for i in erro) == True:
-        break   
-print(graf[0:])        
+        break         
 
-#pyplot.plot(graf_erro[0:r])
-#pyplot.show()
+pyplot.plot(graf_erro[0:r])
+pyplot.show()
 fim= time.time()
 print(fim - inicio)

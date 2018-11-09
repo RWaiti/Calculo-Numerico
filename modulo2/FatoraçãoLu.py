@@ -6,6 +6,7 @@ Este é um arquivo de script temporário.
 """
 
 import numpy as np
+from matplotlib import pyplot
 
 def fatL(a):
     u = np.copy(a)
@@ -67,4 +68,15 @@ a = Ly(L, x)
 print("\n\ny: ",a)
 b = Ux(U, a)
 print("\nx: ", b)
+erro=[]
+graf_erro=[]
+fig = pyplot.figure(1)
+
+for i in range(3):
+    erro.append(x)
+    graf_erro.append(erro[i])
+    pyplot.plot(graf_erro)
+    
+pyplot.plot(graf_erro[0:i])
+pyplot.show()
     
