@@ -56,13 +56,17 @@ sist = np.matrix([[10,2,1,7],
 
 E = np.matrix([[1,0,-1,0.2],
               [-0.5,1,-0.25,-1.425],
-              [1,-1.5,1,2]], dtype = 'double')
+              [1,-0.5,1,2]], dtype = 'double')
 
 F = np.matrix([[1,0,-2,0.2],
               [-0.5,1,-0.25,-1.425],
-              [1,-1.5,1,2]], dtype = 'double')
+              [1,-0.5,1,2]], dtype = 'double')
     
-precisao = 10e-2
+A = np.array([[3,2,4,1],
+              [1,1,2,2],
+              [4,3,2,3]], dtype = 'double') 
+    
+precisao = 10**-2
 verif = beta(F)
 k = np.matrix(3)
 x = np.zeros(3)
@@ -72,7 +76,7 @@ cont = 0
 
 if(verif == 1):
     for i in range(interac):
-        x = seidel(sist, k)
+        x = seidel(F, k)
         kmaior = maior(k)
         xmaior = maior(x)
         k = x

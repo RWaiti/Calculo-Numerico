@@ -44,19 +44,23 @@ def Ux(A, B):
     x[0] = (B[0] - (x[2] * A[0,2]) - (x[1] * A[0,1])) / A[0,0]
     return x
 
-E = np.array([[1,0,-1,0.2],
-              [-0.5,1,-0.25,-1.425],
-              [1,-1.5,1,2]], dtype = 'double')
+E = np.array([[1,0,-1],
+              [-0.5,1,-0.25],
+              [1,-0.5,1]], dtype = 'double')
+    
+F = np.matrix([[1,0,-2],
+              [-0.5,1,-0.25],
+              [1,-0.5,1]], dtype = 'double')
 
 A = np.array([[3,2,4],
               [1,1,2],
-              [4,3,-2]], dtype = 'double') 
+              [4,3,2]], dtype = 'double') 
     
-x = np.array([1,2,3])
+x = np.array([0.2,-1.425,2])
 
 #print(E)
-U = fatU(E)
-L = fatL(E)
+U = fatU(F)
+L = fatL(F)
 print("Matriz L: \n",L)
 print("Matriz U: \n", U)
 a = Ly(L, x)
