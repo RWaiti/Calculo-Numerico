@@ -10,8 +10,8 @@ Implementação do Polinômio interpolador de Lagrange
 import numpy
 from matplotlib import pyplot
 
-x = [2, 2.75, 4, 5, 7, 19]
-y = [1/2, 4/11, 1/4, 1/5, 1/7, 1/19]
+x = [0,1,2,3]
+y = [1,2,5,9]
 
 n = len(x)
 
@@ -39,7 +39,7 @@ teste = P(3, x, y)
 
 t = numpy.linspace(0.1, 5.1, num=50)
 y_p = P(t, x, y)
-
+print(teste)
 fig = pyplot.figure(1)
 
 pyplot.plot(t, 1/t, 'ro')

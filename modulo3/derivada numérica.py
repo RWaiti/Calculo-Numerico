@@ -7,9 +7,9 @@ Created on Wed Nov 21 19:38:11 2018
 import numpy as np
 
 def f(x):
-    return (np.exp(x,4) - 3*x**2 + 2*x - 3)
+    return ((5*x**2 + 3*x -9)/(x**2 + 5))
 
-x = 1.5
+x = 5
 h = 0.01
 #progressiva de ordem 1
 dp1 = (f(x+h) - f(x))/h
